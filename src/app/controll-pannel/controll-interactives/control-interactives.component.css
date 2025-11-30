@@ -1,0 +1,13 @@
+.ControlInteractive {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.FileUpload {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}

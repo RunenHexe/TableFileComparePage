@@ -1,9 +1,9 @@
 <div class="ControlPanelGrid">
   <div class="FileOverviewPosition">
-    <app-file-overview></app-file-overview>
+    <app-file-overview #FileOverview ></app-file-overview>
   </div>
   <div class="ControlInteractiveGrid">
     <app-status-view></app-status-view>
-    <app-control-interactives></app-control-interactives>
+    <app-control-interactive (uploadedFile)="FileOverview.addFile($event)"></app-control-interactive>
   </div>
 </div>

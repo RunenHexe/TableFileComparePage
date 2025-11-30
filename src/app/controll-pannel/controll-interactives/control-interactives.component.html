@@ -1,1 +1,6 @@
-<p>controll-interactives works!</p>
+<div class="ControlInteractive">
+  <div class="FileUpload">
+    <input type="file" multiple (change)="onFileSelect($event)">
+    <button (mouseup)="onFileUpload()">Use</button>
+  </div>
+</div>

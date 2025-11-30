@@ -1,1 +1,9 @@
-<p>file-overview works!</p>
+<div class="FileOverviewElementFormat">
+  @for (item of fileList; track item.uuid) {
+    <div class="FileOverviewElement">
+      <app-file-element [file]=item (deleteMe)="deleteElement(item)"></app-file-element>
+    </div>
+  } @empty {
+    <label>Nothing here</label>
+  }
+</div>

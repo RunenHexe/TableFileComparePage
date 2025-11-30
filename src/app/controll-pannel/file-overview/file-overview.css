@@ -1,0 +1,8 @@
+.FileOverviewElementFormat {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.FileOverviewElement {
+  width: 12.5%;
+}

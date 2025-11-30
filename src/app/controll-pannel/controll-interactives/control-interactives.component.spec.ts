@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ControlInteractives } from './control-interactives.component';
+import { ControlInteractive } from './control-interactives.component';
 
 describe('ControllInteractives', () => {
-  let component: ControlInteractives;
-  let fixture: ComponentFixture<ControlInteractives>;
+  let component: ControlInteractive;
+  let fixture: ComponentFixture<ControlInteractive>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ControlInteractives]
+      imports: [ControlInteractive]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ControlInteractives);
+    fixture = TestBed.createComponent(ControlInteractive);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
