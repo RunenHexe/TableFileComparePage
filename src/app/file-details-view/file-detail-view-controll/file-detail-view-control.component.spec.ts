@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FileDetailViewControll } from './file-detail-view-controll';
+import { FileDetailViewControl } from './file-detail-view-control.component';
 
 describe('FileDetailViewControll', () => {
-  let component: FileDetailViewControll;
-  let fixture: ComponentFixture<FileDetailViewControll>;
+  let component: FileDetailViewControl;
+  let fixture: ComponentFixture<FileDetailViewControl>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FileDetailViewControll]
+      imports: [FileDetailViewControl]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(FileDetailViewControll);
+    fixture = TestBed.createComponent(FileDetailViewControl);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

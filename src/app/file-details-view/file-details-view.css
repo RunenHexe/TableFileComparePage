@@ -1,0 +1,23 @@
+.FileContentOverviewPanel {
+  height: 100%;
+}
+.FileContentScrollBox {
+  height: 100%;
+  overflow: auto;
+}
+.FileContentElementHolder {
+  display: flex;
+  flex-wrap: wrap;
+}
+.FileContentElementPadding {
+  box-sizing: border-box;
+  padding: 10px;
+  min-height: 600px;
+  min-width: 33%;
+}
+.FileContentGrid {
+  display: grid;
+  grid-template-rows: 30% 70%;
+  height: 100%;
+  border: 1px solid white;
+}

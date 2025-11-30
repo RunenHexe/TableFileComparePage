@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   imports: [],
   templateUrl: './file-content.html',
   styleUrl: './file-content.css',
+  standalone: true
 })
 export class FileContent {
 

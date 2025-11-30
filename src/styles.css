@@ -1,17 +1,27 @@
+. {
+
+}
 html {
+  margin: 0;
   height: 100%;
+  box-sizing: border-box;
 }
 body {
   background: black;
   color: white;
   height: 100%;
+  margin: 0;
+  overflow: hidden;
 }
 .MainGrid {
   display: grid;
-  grid-template-rows: 15% auto;
+  grid-template-rows: 15% 85%;
   height: 100%;
+  box-sizing: border-box;
 }
 .ControlPanelGrid {
+  box-sizing: border-box;
+  padding: 10px;
   display: grid;
   grid-template-columns: auto 15%;
   height: 100%;

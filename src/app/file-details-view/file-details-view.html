@@ -1,1 +1,14 @@
-<p>file-details-view works!</p>
+<div class="FileContentOverviewPanel">
+  <div class="FileContentScrollBox">
+    <div class="FileContentElementHolder">
+      @for(item of fileList; track item) {
+        <div class="FileContentElementPadding">
+          <div class="FileContentGrid">
+            <app-file-detail-view-control></app-file-detail-view-control>
+            <app-file-content></app-file-content>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>

@@ -1,5 +1,4 @@
-import {ApplicationRef, Component} from '@angular/core';
-import {ControlService} from '../../services/control.service';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FileData} from '../../interfaces/file-data';
 import {FileElement} from './file-element/file-element';
 
@@ -13,36 +12,11 @@ import {FileElement} from './file-element/file-element';
   standalone: true
 })
 export class FileOverview {
-  constructor(private controlService: ControlService, private appRef: ApplicationRef) {
-    controlService.getSubscribeToFileEvent().subscribe((data) => {
-      console.log(`Got ${data}`);
-      console.log(this.fileList.length)
-      let files: FileData[] = []
-      for(let i = 0; i < this.fileList.length; i++) {
-        files.push(this.fileList[i]);
-      }
-      files.push(data)
-      this.fileList = files
-      console.log(this.fileList.length)
-      appRef.tick()
-    })
-  }
 
-  fileList: FileData[] = []
-
-  addFile(file: FileData) {
-    this.fileList.push(file)
-  }
+  @Input() fileList: FileData[] = []
+  @Output() deleteItem: EventEmitter<FileData> = new EventEmitter()
 
   deleteElement(item: FileData) {
-    if(this.fileList.length > 0) {
-      let tmp: FileData[] = []
-      for(let i = 0; i < this.fileList.length; i++) {
-        if(!(this.fileList[i].uuid === item.uuid)) {
-          tmp.push(this.fileList[i]);
-        }
-      }
-      this.fileList = tmp
-    }
+    this.deleteItem.emit(item);
   }
 }
