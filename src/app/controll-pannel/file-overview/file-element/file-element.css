@@ -1,0 +1,12 @@
+.FileElementFormat {
+  border: 1px solid blue;
+  display: flex;
+  justify-content: space-between;
+}
+label {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 85%;
+}
