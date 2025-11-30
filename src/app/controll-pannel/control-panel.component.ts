@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 import {FileOverview} from './file-overview/file-overview';
 import {StatusView} from './status-view/status-view';
-import {ControlInteractive} from './controll-interactives/control-interactives.component';
+import {ControlInteractive} from './controll-interactive/control-interactive.component';
 import {FileData} from '../interfaces/file-data';
 
 @Component({

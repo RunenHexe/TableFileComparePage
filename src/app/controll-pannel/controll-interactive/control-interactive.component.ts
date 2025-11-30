@@ -5,8 +5,8 @@ import {FileData} from '../../interfaces/file-data';
 @Component({
   selector: 'app-control-interactive',
   imports: [],
-  templateUrl: './control-interactives.component.html',
-  styleUrl: './control-interactives.component.css',
+  templateUrl: './control-interactive.component.html',
+  styleUrl: './control-interactive.component.css',
   standalone: true
 })
 export class ControlInteractive {

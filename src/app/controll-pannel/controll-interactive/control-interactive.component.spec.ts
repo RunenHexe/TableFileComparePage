@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ControlInteractive } from './control-interactives.component';
+import { ControlInteractive } from './control-interactive.component';
 
-describe('ControllInteractives', () => {
+describe('ControlInteractive', () => {
   let component: ControlInteractive;
   let fixture: ComponentFixture<ControlInteractive>;
 
