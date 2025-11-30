@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  background: black;
+  color: white;
+}
+.MainGrid {
+  display: grid;
+  grid-template-rows: 2fr 10fr;
+}
+.ControlPanelGrid {
+  display: grid;
+  grid-template-columns: auto 10%;
+}
+.ControlInteractiveGrid {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}

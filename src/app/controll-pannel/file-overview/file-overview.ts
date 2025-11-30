@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   imports: [],
   templateUrl: './file-overview.html',
   styleUrl: './file-overview.css',
+  standalone: true
 })
 export class FileOverview {
 

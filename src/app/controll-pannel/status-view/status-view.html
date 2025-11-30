@@ -1,1 +1,8 @@
-<p>status-view works!</p>
+<div class="StatusFormat" (mouseup)="changeStatus()">
+  @if(getStatusEqual()) {
+    <label class="StatusEqual">Gleich</label>
+  }
+  @else {
+    <label class="StatusUnequal">Ungleich</label>
+  }
+</div>

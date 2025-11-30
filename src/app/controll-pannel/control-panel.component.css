@@ -1,0 +1,7 @@
+.FileOverviewPosition {
+  margin: 10px;
+  border: 1px solid;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
