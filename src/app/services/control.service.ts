@@ -11,7 +11,6 @@ export class ControlService {
 
   addFile(file: FileData) {
     file.uuid = uuidv4()
-    console.log(file);
     this.files.push(file)
     this.fileAddedEvent.emit(file)
   }

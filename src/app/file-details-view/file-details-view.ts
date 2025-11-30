@@ -17,7 +17,6 @@ export class FileDetailsView {
   fileList: FileData[] = []
 
   updateList(data: FileData[]) {
-    console.log(`Test ${data}`)
     this.fileList = data
   }
 }

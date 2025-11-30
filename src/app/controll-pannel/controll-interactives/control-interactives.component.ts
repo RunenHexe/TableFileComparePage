@@ -1,5 +1,4 @@
 import {Component, EventEmitter, Output} from '@angular/core';
-import {ControlService} from '../../services/control.service';
 import {v4 as uuidv4} from 'uuid';
 import {FileData} from '../../interfaces/file-data';
 
@@ -11,7 +10,7 @@ import {FileData} from '../../interfaces/file-data';
   standalone: true
 })
 export class ControlInteractive {
-  constructor(private controlService: ControlService) {
+  constructor() {
   }
 
   tmpFileList: FileList | null = null;
@@ -27,7 +26,7 @@ export class ControlInteractive {
           if( typeof data === "string" ) {
             this.uploadedFile.emit({name: fileName, content: data, uuid: uuidv4()})
           } else {
-            console.log(`Datatype don't match used type string, datatype is ${typeof data}`);
+            console.error(`Datatype don't match used type string, datatype is ${typeof data}`);
           }
         }
         let element = this.tmpFileList[i];
@@ -39,9 +38,7 @@ export class ControlInteractive {
 
   onFileSelect($event: Event) {
     if($event != null && $event.target != null) {
-      let files = (<HTMLInputElement>$event.target).files;
-      console.log(files)
-      this.tmpFileList = files
+      this.tmpFileList = (<HTMLInputElement>$event.target).files
     }
   }
 }
