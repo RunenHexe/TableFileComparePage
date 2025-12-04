@@ -4,7 +4,7 @@
       @for(item of fileList; track item) {
         <div class="FileContentElementPadding">
           <div class="FileContentGrid">
-            <app-file-detail-view-control></app-file-detail-view-control>
+            <app-file-detail-view-control (primaryChange)="changePrimaryFor(item,$event)" [isPrimary]="primaryFile == item"></app-file-detail-view-control>
             <app-file-content></app-file-content>
           </div>
         </div>

@@ -15,8 +15,22 @@ import {FileData} from '../interfaces/file-data';
 })
 export class FileDetailsView {
   fileList: FileData[] = []
+  primaryFile: FileData | null = null
 
   updateList(data: FileData[]) {
     this.fileList = data
+  }
+
+  changePrimaryFor(item: FileData, event: boolean) {
+    if(this.primaryFile == null && event) {
+      console.log(`Set primary file to ${item}`)
+      this.primaryFile = item
+    } else if (!event && this.primaryFile === item && this.fileList.length > 0) {
+      this.primaryFile = this.fileList[0]
+      console.log(`Set primary file to ${this.primaryFile}`)
+    } else if (this.primaryFile != item && event) {
+      console.log(`Set primary file to ${item}`)
+      this.primaryFile = item
+    }
   }
 }

@@ -1,4 +1,10 @@
-import { Component } from '@angular/core';
+import {
+  Component, EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+  SimpleChanges
+} from '@angular/core';
 
 @Component({
   selector: 'app-file-detail-view-control',
@@ -7,6 +13,28 @@ import { Component } from '@angular/core';
   styleUrl: './file-detail-view-control.component.css',
   standalone: true
 })
-export class FileDetailViewControl {
+export class FileDetailViewControl implements OnChanges{
 
+  fileSeparator: string = ";"
+
+  @Output() primaryChange = new EventEmitter<boolean>();
+
+  @Input() isPrimary: boolean = false;
+
+  @Input() isEqualToPrimary: boolean = true
+
+  changeSeparator(event: string) {
+    this.fileSeparator = event
+  }
+
+  setToComparedFile() {
+    console.log(`This file is Primary ${this.isPrimary}`)
+    let isPrimary = !this.isPrimary
+    this.primaryChange.emit(isPrimary)
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.isPrimary = changes['isPrimary'].currentValue
+    console.log(`I'm Primary ${this.isPrimary}`)
+  }
 }
