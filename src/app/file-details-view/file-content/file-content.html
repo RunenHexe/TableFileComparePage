@@ -1,1 +1,23 @@
-file-content works!
+<div class="FileDetailsContentViewGrid">
+  @if(maxColumns > 0) {
+    <div class="FileDetailsContentViewTabs">
+        @for(item of longestColumn; track $index) {
+            @if(hasColumnNaming) {
+              <input type="button" value="{{item}}" (click)="changeActiveColumn($index)">
+            } @else {
+              <input type="button" value="{{$index}}" (click)="changeActiveColumn($index)">
+            }
+        } @empty {
+        }
+    </div>
+  }
+  <div class="FileDetailsContentViewFileContent">
+    @for(item of fileContentLines; track item) {
+      @if(fileContentColumns[$index][activeColumn].length > 0) {
+        <label style="padding-top: 5px">{{fileContentColumns[$index][activeColumn]}}</label>
+      }
+    } @empty {
+      <label>File Empty</label>
+    }
+  </div>
+</div>

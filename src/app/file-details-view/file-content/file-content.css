@@ -1,0 +1,18 @@
+.FileDetailsContentViewGrid {
+  display: grid;
+  grid-template-rows:1fr 19fr;
+  box-sizing: border-box;
+}
+
+.FileDetailsContentViewTabs {
+  border: 1px solid white;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.FileDetailsContentViewFileContent {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
