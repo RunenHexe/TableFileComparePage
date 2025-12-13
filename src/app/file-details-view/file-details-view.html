@@ -3,12 +3,10 @@
     <div class="FileContentElementHolder">
       @for(item of fileList; track item) {
         <div class="FileContentElementPadding">
-          <div class="FileContentGrid">
-            <app-file-detail-view-control #detailsViewControl (useColumnNames)="fileContent.setUseColumnNames($event)"
-                                          (primaryChange)="changePrimaryFor(item,$event,fileContent.getSelectedColumns())"
-                                          [isPrimary]="primaryFile == item"></app-file-detail-view-control>
-            <app-file-content #fileContent [file]="item" [columnsFromPrimary]="columnsFromPrimary" (selectedColumn)="setPrimaryColumns(item,$event)"></app-file-content>
-          </div>
+          <app-file-content-view-connector (useAsPrimary)="changePrimaryTo(item, $event.useAsPrimary, $event.selectedColumn)"
+                                           [isPrimary]="primaryFile == item"
+                                           [columnsFromPrimary]="columnsFromPrimary"
+                                           [file]="item" (useSelectedColumn)="setPrimaryColumns(item,$event)"></app-file-content-view-connector>
         </div>
       }
     </div>

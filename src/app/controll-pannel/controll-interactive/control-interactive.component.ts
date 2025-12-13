@@ -20,7 +20,7 @@ export class ControlInteractive {
     if( this.tmpFileList != null) {
       for (let i = 0; i < this.tmpFileList.length; i++) {
         let fileReader = new FileReader();
-        let fileName: String = "";
+        let fileName: string = "";
         fileReader.onloadend = () => {
           let data = fileReader.result;
           if( typeof data === "string" ) {

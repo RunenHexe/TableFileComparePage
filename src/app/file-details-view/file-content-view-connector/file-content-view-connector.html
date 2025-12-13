@@ -1,0 +1,9 @@
+<div class="FileContentGrid">
+  @if(file != null && file.uuid != undefined) {
+    <app-file-detail-view-control (useColumnNames)="setUseColumnNamesForElement($event)"
+                                  (primaryChange)="changePrimaryFor($event)"
+                                  [fileUuid]="file.uuid"
+                                  [isPrimary]="isPrimary"></app-file-detail-view-control>
+    <app-file-content [file]="file" [columnsFromPrimary]="columnsFromPrimary" (selectedColumn)="setPrimaryColumns($event)" [hasColumnNaming]="useColumnNames"></app-file-content>
+  }
+</div>

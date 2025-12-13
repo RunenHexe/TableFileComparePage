@@ -23,12 +23,12 @@
       <input #SeparatorInput type="text" value=";" style="max-width: 20px; text-align: right" (keyup)="changeSeparator(SeparatorInput.value)">
     </div>
     <div>
-      <input id="ColumnNames" type="checkbox" (change)="setColumnNames($event)" >
-      <label for="ColumnNames" >Use first row as column names</label>
+      <input id="ColumnNames_{{fileUuid}}" type="checkbox" (change)="setColumnNames($event)" >
+      <label for="ColumnNames_{{fileUuid}}" >Use first row as column names</label>
     </div>
   </div>
   <div class="FileStateIdentityBox">
-    <div class="FileStateIdentity IsEqualToPrimary " [attr.isEqualToPrimary]="isEqualToPrimary">
+    <div class="FileStateIdentity IsEqualToPrimary" [attr.isEqualToPrimary]="isEqualToPrimary">
 
     </div>
   </div>

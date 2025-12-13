@@ -1,13 +1,11 @@
 import {Component} from '@angular/core';
-import {FileDetailViewControl} from './file-detail-view-control/file-detail-view-control.component';
-import {FileContent} from './file-content/file-content';
 import {FileData} from '../interfaces/file-data';
+import {FileContentViewConnector} from './file-content-view-connector/file-content-view-connector';
 
 @Component({
   selector: 'app-file-details-view',
   imports: [
-    FileDetailViewControl,
-    FileContent
+    FileContentViewConnector
   ],
   templateUrl: './file-details-view.html',
   styleUrl: './file-details-view.css',
@@ -22,7 +20,7 @@ export class FileDetailsView {
     this.fileList = data
   }
 
-  changePrimaryFor(item: FileData, event: boolean, primaryColumns: string[]) {
+  changePrimaryTo(item: FileData, event: boolean, primaryColumns: string[]) {
     if(this.primaryFile == null && event) {
       this.setPrimaryFileAndColumns(item, primaryColumns);
     } else if (!event && this.primaryFile === item && this.fileList.length > 0) {

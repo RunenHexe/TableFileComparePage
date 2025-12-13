@@ -1,5 +1,5 @@
 export interface FileData {
-  name: String;
-  content: String;
-  uuid?: String;
+  name: string;
+  content: string;
+  uuid?: string;
 }

@@ -16,3 +16,10 @@
   flex-direction: column;
   box-sizing: border-box;
 }
+
+.containsRow[rowPosition="exact"] {
+  color: green;
+}
+.containsRow[rowPosition="contains"] {
+  color: orange;
+}

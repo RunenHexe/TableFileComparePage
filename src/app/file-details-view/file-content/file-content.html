@@ -13,7 +13,7 @@
       @if(!($index == 0 && hasColumnNaming)) {
         <!-- remove empty lines for nicer optics -->
         @if(fileContentColumns[$index][activeColumn].length > 0) {
-          <label style="padding-top: 5px">{{fileContentColumns[$index][activeColumn]}}</label>
+          <label class="containsRow" [attr.rowPosition]="checkPrimaryContent(fileContentColumns[$index][activeColumn],$index)" style="padding-top: 5px">{{fileContentColumns[$index][activeColumn]}}</label>
         }
       }
     } @empty {

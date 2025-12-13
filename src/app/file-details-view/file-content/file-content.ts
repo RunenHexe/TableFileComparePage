@@ -18,6 +18,7 @@ export class FileContent implements OnChanges, OnInit{
   @Input() columnsFromPrimary: string[] | null = null;
 
   @Output() selectedColumn = new EventEmitter<string[]>();
+  @Output() fileDataIsEqual: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   fileContentLines: string[] = []
   fileContentColumns: string[][] = []
@@ -73,11 +74,21 @@ export class FileContent implements OnChanges, OnInit{
     this.selectedColumn.emit(this.selectedColumnContent)
   }
 
-  setUseColumnNames(isUseNames: boolean) {
-    this.hasColumnNaming = isUseNames;
-  }
-
-  getSelectedColumns(): string[] {
-    return this.selectedColumnContent
+  checkPrimaryContent(item: string, $index: number): string {
+    console.log(`Check for ${item} at position ${$index}`)
+    if(this.columnsFromPrimary != null) {
+      for(let i = 0; i < this.columnsFromPrimary.length; i++){
+        console.log(`Primary column at position ${i} contains ${this.columnsFromPrimary[i]}`)
+        if(this.columnsFromPrimary[i] == item) {
+          let tmpIndex = this.hasColumnNaming ? $index - 1 : $index;
+          if(tmpIndex == i){
+            return "exact"
+          } else if(tmpIndex != i) {
+            return "contains"
+          }
+        }
+      }
+    }
+    return ""
   }
 }
