@@ -2,19 +2,19 @@
   @if(maxColumns > 0) {
     <div class="FileDetailsContentViewTabs">
         @for(item of longestColumn; track $index) {
-            @if(hasColumnNaming) {
-              <input type="button" value="{{item}}" (click)="changeActiveColumn($index)">
-            } @else {
-              <input type="button" value="{{$index}}" (click)="changeActiveColumn($index)">
-            }
+          <input type="button" value="{{hasColumnNaming ? item : $index}}" (click)="changeActiveColumn($index)">
         } @empty {
         }
     </div>
   }
   <div class="FileDetailsContentViewFileContent">
     @for(item of fileContentLines; track item) {
-      @if(fileContentColumns[$index][activeColumn].length > 0) {
-        <label style="padding-top: 5px">{{fileContentColumns[$index][activeColumn]}}</label>
+      <!-- skip first line if Column naming is set to true -->
+      @if(!($index == 0 && hasColumnNaming)) {
+        <!-- remove empty lines for nicer optics -->
+        @if(fileContentColumns[$index][activeColumn].length > 0) {
+          <label style="padding-top: 5px">{{fileContentColumns[$index][activeColumn]}}</label>
+        }
       }
     } @empty {
       <label>File Empty</label>

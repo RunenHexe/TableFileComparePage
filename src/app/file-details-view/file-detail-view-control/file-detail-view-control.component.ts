@@ -18,6 +18,7 @@ export class FileDetailViewControl implements OnChanges{
   fileSeparator: string = ";"
 
   @Output() primaryChange = new EventEmitter<boolean>();
+  @Output() useColumnNames = new EventEmitter<boolean>();
 
   @Input() isPrimary: boolean = false;
 
@@ -36,5 +37,9 @@ export class FileDetailViewControl implements OnChanges{
   ngOnChanges(changes: SimpleChanges): void {
     this.isPrimary = changes['isPrimary'].currentValue
     console.log(`I'm Primary ${this.isPrimary}`)
+  }
+
+  setColumnNames(event: Event) {
+    this.useColumnNames.emit((<HTMLInputElement>event.target).checked)
   }
 }

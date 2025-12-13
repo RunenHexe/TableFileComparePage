@@ -20,7 +20,11 @@
     }
     <div>
       <label>Separator: </label>
-      <input #SeparatorInput type="text" style="max-width: 20px; text-align: right" (keyup)="changeSeparator(SeparatorInput.value)">
+      <input #SeparatorInput type="text" value=";" style="max-width: 20px; text-align: right" (keyup)="changeSeparator(SeparatorInput.value)">
+    </div>
+    <div>
+      <input id="ColumnNames" type="checkbox" (change)="setColumnNames($event)" >
+      <label for="ColumnNames" >Use first row as column names</label>
     </div>
   </div>
   <div class="FileStateIdentityBox">

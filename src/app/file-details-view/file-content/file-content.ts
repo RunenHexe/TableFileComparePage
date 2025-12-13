@@ -15,7 +15,9 @@ export class FileContent implements OnChanges, OnInit{
 
   @Input() hasColumnNaming: boolean = false;
 
-  @Output() selectedLines = new EventEmitter<String[]>();
+  @Input() columnsFromPrimary: string[] | null = null;
+
+  @Output() selectedColumn = new EventEmitter<string[]>();
 
   fileContentLines: string[] = []
   fileContentColumns: string[][] = []
@@ -64,6 +66,18 @@ export class FileContent implements OnChanges, OnInit{
         }
       }
     }
-    this.selectedLines.emit(this.selectedColumnContent)
+    if(this.hasColumnNaming) {
+      this.selectedColumnContent.reverse().pop()
+      this.selectedColumnContent.reverse()
+    }
+    this.selectedColumn.emit(this.selectedColumnContent)
+  }
+
+  setUseColumnNames(isUseNames: boolean) {
+    this.hasColumnNaming = isUseNames;
+  }
+
+  getSelectedColumns(): string[] {
+    return this.selectedColumnContent
   }
 }
