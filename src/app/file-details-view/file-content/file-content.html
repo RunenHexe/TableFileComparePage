@@ -1,21 +1,13 @@
 <div class="FileDetailsContentViewGrid">
-  @if(maxColumns > 0) {
-    <div class="FileDetailsContentViewTabs">
-        @for(item of longestColumn; track $index) {
-          <input type="button" value="{{hasColumnNaming ? item : $index}}" (click)="changeActiveColumn($index)">
-        } @empty {
-        }
-    </div>
-  }
+  <div class="FileDetailsContentViewTabs">
+    @for(item of columns; track $index) {
+      <input type="button" value="{{item}}" (click)="changeActiveColumn($index)">
+    } @empty {
+    }
+  </div>
   <div class="FileDetailsContentViewFileContent">
-    @for(item of fileContentLines; track item) {
-      <!-- skip first line if Column naming is set to true -->
-      @if(!($index == 0 && hasColumnNaming)) {
-        <!-- remove empty lines for nicer optics -->
-        @if(fileContentColumns[$index][activeColumn].length > 0) {
-          <label class="containsRow" [attr.rowPosition]="columnState[$index]" style="padding-top: 5px">{{fileContentColumns[$index][activeColumn]}}</label>
-        }
-      }
+    @for(item of rows; track $index) {
+      <label class="containsRow" [attr.rowPosition]="item.rowEqualState" style="padding-top: 5px">{{item.row}}</label>
     } @empty {
       <label>File Empty</label>
     }

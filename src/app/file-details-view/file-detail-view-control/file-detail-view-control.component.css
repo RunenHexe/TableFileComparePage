@@ -17,10 +17,20 @@
   color: green;
 }
 .FileDiffStateFontColour[fileDiffState="contains"] {
-  color: yellow;
+  color: orange;
 }
 .FileDiffStateFontColour[fileDiffState="unequal"] {
   color: red;
+}
+
+.FileDiffStateBackGround[fileDiffState="equal"] {
+  background: green;
+}
+.FileDiffStateBackGround[fileDiffState="contains"] {
+  background: orange;
+}
+.FileDiffStateBackGround[fileDiffState="unequal"] {
+  background: red;
 }
 
 .FileStateIdentity{

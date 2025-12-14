@@ -17,9 +17,12 @@
   box-sizing: border-box;
 }
 
-.containsRow[rowPosition="exact"] {
+.containsRow[rowPosition="equal"] {
   color: green;
 }
 .containsRow[rowPosition="contains"] {
   color: orange;
+}
+.containsRow[rowPosition="unequal"] {
+  color: red;
 }

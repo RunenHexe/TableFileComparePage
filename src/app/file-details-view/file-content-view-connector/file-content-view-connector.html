@@ -2,9 +2,9 @@
   @if(file != null && file.uuid != undefined) {
     <app-file-detail-view-control (useColumnNames)="setUseColumnNamesForElement($event)"
                                   (primaryChange)="changePrimaryFor($event)"
-                                  [fileUuid]="file.uuid"
+                                  [isPrimary]="isPrimary"
                                   [fileDiffState]="fileDiffSate"
-                                  [isPrimary]="isPrimary"></app-file-detail-view-control>
-    <app-file-content (fileDiffState)="setFileDiffState($event)" [file]="file" [columnsFromPrimary]="columnsFromPrimary" (selectedColumn)="setPrimaryColumns($event)" [hasColumnNaming]="useColumnNames"></app-file-content>
+                                  [fileUuid]="file.uuid"></app-file-detail-view-control>
+    <app-file-content [columns]="columns" [rows]="rows" (changeSelectedColumn)="setSelectedColumnTo($event)"></app-file-content>
   }
 </div>

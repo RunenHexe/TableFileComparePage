@@ -5,17 +5,8 @@
         <label>Primary File</label>
       </div>
     } @else {
-      <div style="display: grid; grid-template-columns: 1fr 1fr; height: 2em">
-        <div style="display: flex; align-items: center; justify-content: center">
-        @if (isEqualToPrimary) {
-          <label class="FileDiffStateFontColour" [attr.fileDiffState]="fileDiffState">Equal to primary</label>
-        } @else {
-          <label class="FileDiffStateFontColour" [attr.fileDiffState]="fileDiffState">Unequal to primary</label>
-        }
-        </div>
-        <div style="display: flex; align-items: center; justify-content: center">
-          <input #PrimaryCheckBox type="button" value="set Primary" [disabled]="isPrimary" (click)="setToComparedFile()">
-        </div>
+      <div style="display: flex; align-items: center; justify-content: center">
+        <input #PrimaryCheckBox type="button" value="set Primary" [disabled]="isPrimary" (click)="setToComparedFile()">
       </div>
     }
     <div>
@@ -28,8 +19,7 @@
     </div>
   </div>
   <div class="FileStateIdentityBox">
-    <div class="FileStateIdentity IsEqualToPrimary" [attr.isEqualToPrimary]="isEqualToPrimary">
-
+    <div class="FileStateIdentity FileDiffStateBackGround" [attr.fileDiffState]="fileDiffState">
     </div>
   </div>
 </div>

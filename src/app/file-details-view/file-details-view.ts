@@ -14,7 +14,7 @@ import {FileContentViewConnector} from './file-content-view-connector/file-conte
 export class FileDetailsView {
   fileList: FileData[] = []
   primaryFile: FileData | null = null
-  columnsFromPrimary: string[] | null = null
+  columnsFromPrimary: string[] = []
 
   updateList(data: FileData[]) {
     this.fileList = data

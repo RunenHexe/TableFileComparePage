@@ -37,8 +37,8 @@ export class FileDetailViewControl implements OnChanges{
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.isPrimary = changes['isPrimary'].currentValue
-    console.log(`I'm Primary ${this.isPrimary}`)
+    //this.isPrimary = changes['isPrimary'].currentValue
+    //console.log(`I'm Primary ${this.isPrimary}`)
   }
 
   setColumnNames(event: Event) {
