@@ -23,6 +23,7 @@ export class FileContentViewConnector {
   selectedColumns: string [] = []
   @Input() isPrimary: boolean = false;
   @Input() columnsFromPrimary: string[] | null  = null;
+  fileDiffSate: string = "equal"
 
   setUseColumnNamesForElement(event: boolean) {
     this.useColumnNames = event;
@@ -34,5 +35,9 @@ export class FileContentViewConnector {
 
   setPrimaryColumns(event: string[]) {
     this.useSelectedColumn.emit(event);
+  }
+
+  setFileDiffState(event: string) {
+    this.fileDiffSate = event
   }
 }

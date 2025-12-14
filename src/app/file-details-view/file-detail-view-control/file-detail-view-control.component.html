@@ -8,9 +8,9 @@
       <div style="display: grid; grid-template-columns: 1fr 1fr; height: 2em">
         <div style="display: flex; align-items: center; justify-content: center">
         @if (isEqualToPrimary) {
-          <label class="IsEqualToPrimaryLabel ">Equal to primary</label>
+          <label class="FileDiffStateFontColour" [attr.fileDiffState]="fileDiffState">Equal to primary</label>
         } @else {
-          <label class="IsUnequalToPrimaryLabel ">Unequal to primary</label>
+          <label class="FileDiffStateFontColour" [attr.fileDiffState]="fileDiffState">Unequal to primary</label>
         }
         </div>
         <div style="display: flex; align-items: center; justify-content: center">

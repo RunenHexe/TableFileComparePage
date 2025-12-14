@@ -13,11 +13,13 @@
   color: green;
 }
 
-.IsEqualToPrimaryLabel {
+.FileDiffStateFontColour[fileDiffState="equal"] {
   color: green;
 }
-
-.IsUnequalToPrimaryLabel {
+.FileDiffStateFontColour[fileDiffState="contains"] {
+  color: yellow;
+}
+.FileDiffStateFontColour[fileDiffState="unequal"] {
   color: red;
 }
 

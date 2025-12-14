@@ -3,7 +3,8 @@
     <app-file-detail-view-control (useColumnNames)="setUseColumnNamesForElement($event)"
                                   (primaryChange)="changePrimaryFor($event)"
                                   [fileUuid]="file.uuid"
+                                  [fileDiffState]="fileDiffSate"
                                   [isPrimary]="isPrimary"></app-file-detail-view-control>
-    <app-file-content [file]="file" [columnsFromPrimary]="columnsFromPrimary" (selectedColumn)="setPrimaryColumns($event)" [hasColumnNaming]="useColumnNames"></app-file-content>
+    <app-file-content (fileDiffState)="setFileDiffState($event)" [file]="file" [columnsFromPrimary]="columnsFromPrimary" (selectedColumn)="setPrimaryColumns($event)" [hasColumnNaming]="useColumnNames"></app-file-content>
   }
 </div>
