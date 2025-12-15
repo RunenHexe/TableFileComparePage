@@ -2,11 +2,11 @@
   <div >
     @if (isPrimary) {
       <div style="display: flex; align-items: center; justify-content: center; height: 2em; font-weight: bolder">
-        <label>Primary File</label>
+        <label>{{fileName}} is Primary File</label>
       </div>
     } @else {
       <div style="display: flex; align-items: center; justify-content: center">
-        <input #PrimaryCheckBox type="button" value="set Primary" [disabled]="isPrimary" (click)="setToComparedFile()">
+        <input #PrimaryCheckBox type="button" value="set {{fileName}} as Primary file" [disabled]="isPrimary" (click)="setToComparedFile()">
       </div>
     }
     <div>

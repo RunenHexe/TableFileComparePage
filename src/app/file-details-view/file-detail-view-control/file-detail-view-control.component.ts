@@ -25,6 +25,7 @@ export class FileDetailViewControl implements OnChanges{
   @Input() isEqualToPrimary: boolean = true
   @Input() fileUuid: string | undefined = "";
   @Input() fileDiffState: string = "equal";
+  @Input() fileName: string = "";
 
   changeSeparator(event: string) {
     this.fileSeparator = event

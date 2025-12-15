@@ -4,6 +4,7 @@
                                   (primaryChange)="changePrimaryFor($event)"
                                   [isPrimary]="isPrimary"
                                   [fileDiffState]="fileDiffSate"
+                                  [fileName]="file.name"
                                   [fileUuid]="file.uuid"></app-file-detail-view-control>
     <app-file-content [columns]="columns" [rows]="rows" (changeSelectedColumn)="setSelectedColumnTo($event)"></app-file-content>
   }
