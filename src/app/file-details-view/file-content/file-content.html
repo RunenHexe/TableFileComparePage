@@ -5,11 +5,13 @@
     } @empty {
     }
   </div>
-  <div class="FileDetailsContentViewFileContent">
-    @for(item of rows; track $index) {
-      <label class="containsRow" [attr.rowPosition]="item.rowEqualState" style="padding-top: 5px">{{item.row}}</label>
-    } @empty {
-      <label>File Empty</label>
-    }
+  <div class="FileContentScrollBox">
+    <div class="FileDetailsContentViewFileContent">
+      @for(item of rows; track $index) {
+        <label class="containsRow" [attr.rowPosition]="item.rowEqualState" style="padding-top: 5px">{{item.row}}</label>
+      } @empty {
+        <label>File Empty</label>
+      }
+    </div>
   </div>
 </div>

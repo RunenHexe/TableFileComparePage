@@ -12,6 +12,6 @@
 .FileContentElementPadding {
   box-sizing: border-box;
   padding: 10px;
-  min-height: 600px;
+  height: 600px;
   min-width: 33%;
 }
