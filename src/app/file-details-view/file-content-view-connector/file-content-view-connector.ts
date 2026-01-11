@@ -22,6 +22,7 @@ export class FileContentViewConnector implements OnInit, OnChanges{
 
   @Input() isPrimary: boolean = false;
   @Input() columnsFromPrimary: string[] = [];
+  @Input() tokenRegex: string = ""
 
   columns: string[] = []
 
@@ -30,6 +31,8 @@ export class FileContentViewConnector implements OnInit, OnChanges{
   selectedColumn: number = 0
   useColumnNames: boolean = false
   fileDiffSate: string = "equal"
+
+  useTokenRegex: boolean = false
 
   ngOnInit(): void {
     this.calculateSelectedRows()
@@ -47,20 +50,38 @@ export class FileContentViewConnector implements OnInit, OnChanges{
     if(changes['columnsFromPrimary'] && changes['columnsFromPrimary'] != null){
       this.calculateSelectedRows()
     }
+    if(changes['tokenRegex'] && this.useTokenRegex && this.file != null) {
+      this.calculateSelectedRows()
+      this.calculateColumnNames()
+    }
   }
 
   calculateSelectedRows() {
     this.fileDiffSate="equal"
     if(this.file != null && this.file.content != null){
-      this.rows = []
-      let tmpFileData = this.file.content.split("\r\n")
-      let startIndexOfRows = this.useColumnNames ? 1 : 0;
-      for(let i = startIndexOfRows; i < tmpFileData.length; i++){
-        let rowContent = tmpFileData[i].split(this.columnSeparator)[this.selectedColumn];
-        this.rows.push({row: rowContent, rowEqualState: this.calculateDiff(i, rowContent)});
+      if(this.useTokenRegex) {
+        let diffRegex = new RegExp(this.tokenRegex, "g")
+        console.log(`calculate tokens with regex ${diffRegex}`)
+        let tokens = this.file.content.match(diffRegex)
+        console.log(`tokens found ${tokens}`)
+        this.rows = []
+        if(tokens != null) {
+          for(let i = 0; i < tokens.length; i++){
+            this.rows.push({row: tokens[i], rowEqualState: this.calculateDiff(i, tokens[i])});
+          }
+        }
+      } else {
+        this.rows = []
+        let tmpFileData = this.file.content.split("\r\n")
+        let startIndexOfRows = this.useColumnNames ? 1 : 0;
+        for(let i = startIndexOfRows; i < tmpFileData.length; i++){
+          let rowContent = tmpFileData[i].split(this.columnSeparator)[this.selectedColumn];
+          this.rows.push({row: rowContent, rowEqualState: this.calculateDiff(i, rowContent)});
+        }
       }
     }
   }
+
 
   calculateDiff(rowPosition: number, rowContent: string): string {
     let tmpRowPosition = this.useColumnNames ? rowPosition - 1 : rowPosition
@@ -132,5 +153,14 @@ export class FileContentViewConnector implements OnInit, OnChanges{
     let tmpRowData = this.extractRowContent();
     console.log(`Set primary columns to ${tmpRowData}`)
     this.useSelectedColumn.emit(tmpRowData);
+  }
+
+  setUseTokenRegex(event: boolean) {
+    this.useTokenRegex = event
+    this.calculateSelectedRows()
+    this.calculateColumnNames()
+    if(this.isPrimary) {
+      this.setPrimaryColumns()
+    }
   }
 }

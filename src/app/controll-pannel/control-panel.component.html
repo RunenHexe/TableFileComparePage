@@ -3,7 +3,7 @@
     <app-file-overview [fileList]="fileList" (deleteItem)="deleteItem($event)"></app-file-overview>
   </div>
   <div class="ControlInteractiveGrid">
-    <app-status-view></app-status-view>
+    <app-status-view (tokenRegex)="setTokenRegexTo($event)" ></app-status-view>
     <app-control-interactive (uploadedFile)="addFile($event)"></app-control-interactive>
   </div>
 </div>

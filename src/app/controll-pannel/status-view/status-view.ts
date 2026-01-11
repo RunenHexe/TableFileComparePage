@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-status-view',
@@ -7,14 +7,18 @@ import { Component } from '@angular/core';
   styleUrl: './status-view.css',
   standalone: true
 })
-export class StatusView {
-  statusEqual: boolean = false;
+export class StatusView implements AfterViewInit{
 
-  getStatusEqual() {
-    return this.statusEqual
+  @Output() tokenRegex = new EventEmitter<string>();
+
+  tokenRegexDefaultValue: string = "(SC [0-9]{3}.[0-9]{3})|(DF [0-9]{5})|((RQ [0-9]{5})(_[0-9]*)*)"
+
+  setTokenRegexTo(value: string) {
+   console.log("setTokenRegexTo", value);
+   this.tokenRegex.emit(value);
   }
 
-  changeStatus() {
-    this.statusEqual = !this.statusEqual;
+  ngAfterViewInit(): void {
+    this.tokenRegex.emit(this.tokenRegexDefaultValue)
   }
 }

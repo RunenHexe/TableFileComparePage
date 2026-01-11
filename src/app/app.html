@@ -1,4 +1,4 @@
 <div class="MainGrid">
-  <app-control-panel (fileListUpdate)="FileDetails.updateList($event)"></app-control-panel>
+  <app-control-panel (tokenRegex)="FileDetails.setTokenRegEx($event)" (fileListUpdate)="FileDetails.updateList($event)"></app-control-panel>
   <app-file-details-view #FileDetails ></app-file-details-view>
 </div>

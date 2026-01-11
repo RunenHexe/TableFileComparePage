@@ -20,6 +20,7 @@ export class ControlPanel {
   fileList: FileData[] = []
 
   @Output() fileListUpdate: EventEmitter<FileData[]> = new EventEmitter();
+  @Output() tokenRegex = new EventEmitter<string>();
 
   addFile($event: FileData) {
     this.fileList.push($event);
@@ -37,5 +38,9 @@ export class ControlPanel {
       this.fileList = tmp
     }
     this.fileListUpdate.emit(this.fileList);
+  }
+
+  setTokenRegexTo($event: string) {
+    this.tokenRegex.emit($event);
   }
 }

@@ -5,7 +5,9 @@
                                   [isPrimary]="isPrimary"
                                   [fileDiffState]="fileDiffSate"
                                   [fileName]="file.name"
-                                  [fileUuid]="file.uuid"></app-file-detail-view-control>
+                                  [fileUuid]="file.uuid"
+                                  (useTokenRegex)="setUseTokenRegex($event)"
+    ></app-file-detail-view-control>
     <app-file-content [columns]="columns" [rows]="rows" (changeSelectedColumn)="setSelectedColumnTo($event)"></app-file-content>
   }
 </div>

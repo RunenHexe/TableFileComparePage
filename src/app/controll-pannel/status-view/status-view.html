@@ -1,8 +1,4 @@
-<div class="StatusFormat" (mouseup)="changeStatus()">
-  @if(getStatusEqual()) {
-    <label class="StatusEqual">Gleich</label>
-  }
-  @else {
-    <label class="StatusUnequal">Ungleich</label>
-  }
+<div class="StatusFormat">
+  <label>Token Regex</label>
+  <input #tokenTextField type="text" value="(SC [0-9]{3}.[0-9]{3})|(DF [0-9]{5})|((RQ [0-9]{5})(_[0-9]*)*)" (change)="setTokenRegexTo(tokenTextField.value)">
 </div>

@@ -15,6 +15,7 @@ export class FileDetailsView {
   fileList: FileData[] = []
   primaryFile: FileData | null = null
   columnsFromPrimary: string[] = []
+  tokenRegex: string = ""
 
   updateList(data: FileData[]) {
     this.fileList = data
@@ -42,5 +43,9 @@ export class FileDetailsView {
       console.log(event)
       this.columnsFromPrimary = event
     }
+  }
+
+  setTokenRegEx(regEx: string) {
+    this.tokenRegex = regEx
   }
 }

@@ -6,7 +6,9 @@
           <app-file-content-view-connector (useAsPrimary)="changePrimaryTo(item, $event.useAsPrimary, $event.selectedColumn)"
                                            [isPrimary]="primaryFile == item"
                                            [columnsFromPrimary]="columnsFromPrimary"
-                                           [file]="item" (useSelectedColumn)="setPrimaryColumns(item,$event)"></app-file-content-view-connector>
+                                           [file]="item" (useSelectedColumn)="setPrimaryColumns(item,$event)"
+                                           [tokenRegex]="tokenRegex"
+          ></app-file-content-view-connector>
         </div>
       }
     </div>

@@ -16,6 +16,8 @@
     <div>
       <input id="ColumnNames_{{fileUuid}}" type="checkbox" (change)="setColumnNames($event)" >
       <label for="ColumnNames_{{fileUuid}}" >Use first row as column names</label>
+      <input id="UseTokenSanitizer_{{fileUuid}}" type="checkbox" (change)="setTokenSanitizer($event)">
+      <label for="UseTokenSanitizer_{{fileUuid}}" >Use tokens instead of columns</label>
     </div>
   </div>
   <div class="FileStateIdentityBox">
