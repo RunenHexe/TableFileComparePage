@@ -1,4 +1,4 @@
 <div class="StatusFormat">
   <label>Token Regex</label>
-  <input #tokenTextField type="text" value="(SC [0-9]{3}.[0-9]{3})|(DF [0-9]{5})|((RQ [0-9]{5})(_[0-9]*)*)" (change)="setTokenRegexTo(tokenTextField.value)">
+  <input #tokenTextField type="text" value="{{tokenRegexDefaultValue}}" (change)="setTokenRegexTo(tokenTextField.value)">
 </div>
