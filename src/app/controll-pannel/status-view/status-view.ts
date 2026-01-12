@@ -11,7 +11,7 @@ export class StatusView implements AfterViewInit{
 
   @Output() tokenRegex = new EventEmitter<string>();
 
-  tokenRegexDefaultValue: string = "(SC [0-9]{3}.[0-9]{3})|(DF [0-9]{5})|((RQ [0-9]{5})(_[0-9]*)*)"
+  tokenRegexDefaultValue: string = "(SC [0-9]{3}.[0-9]{3})|(DF[0-9]{1,})|((RQ[0-9]{1,})(_[0-9a-z]*)*)"
 
   setTokenRegexTo(value: string) {
    console.log("setTokenRegexTo", value);
